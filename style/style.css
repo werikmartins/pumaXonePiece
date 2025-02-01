@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    & h1 {
+        font-family: "Poppins", Arial, Helvetica, sans-serif;
+        font-weight: 900;
+    }
+}
+
+main {
+    background-image: radial-gradient(#407ab4, #0c1a87);
+    height: 100vh;
+    position: relative;
+
+    & section {
+        width: 70vw;
+        height: 100vh;
+        position: relative;
+        margin: auto;
+
+        & .item {
+            position: absolute;
+            inset: 0%;
+
+            & .sneakers-img {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 55%;
+                
+                & img {
+                    width: 100%;
+                    transform: rotate(-25deg);
+                }
+            }
+
+            & .content {
+                position: absolute;
+                right: 100px;
+                width: 50%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                gap: 20px;
+
+                & .price {
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+
+                & .character {
+                    font-family: "Poppins", Arial, Helvetica, sans-serif;
+                    font-size: 5em;
+                    font-weight: 900;
+                    line-height: 0.7em;
+                }
+
+                & .description {
+                    text-align: end;
+                    max-width: 430px;
+                    font-size: 15px;
+                    font-weight: 400;
+                }
+
+                & button {
+                    cursor: pointer;
+                    border: none;
+                    padding: 7px;
+                    border-radius: 15px;
+                    background-color: #cad926;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    & .arrows {
+        position: absolute;
+        width: 75vw;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+
+        & button {
+            border: none;
+            border-radius: 50%;
+            background-color: transparent;
+
+            & img {
+                border-radius: 50%;
+                width: 4em;
+                cursor: pointer;
+                transition: 0.2s;
+
+                &:hover {
+                    width: 4.5em;
+                }
+            }
+        }
+
+        & #left-arrow {
+            transform: scaleX(-1);
+        }
+    }
+
+    & aside {
+        position: absolute;
+        top: 85%;
+        left: 6em;
+        width: 25vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 10px;
+
+        & ul {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+
+            & li {
+                cursor: pointer;
+                filter: grayscale(100%);
+                transition: 0.5s;
+
+                & img {
+                    width: 100%;
+                }
+            }
+
+            & .active {
+                filter: grayscale(0%);
+                
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    width: 100%;
+                    height: 6px;
+                    border-radius: 3px;
+                    background-color: #cad926;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    position: absolute;
+    top: 90%;
+    right: 6em;
+    width: 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 10px;
+
+    & ul {
+        display: flex;
+        gap: 10px;
+        list-style: none;
+
+        & li {
+            cursor: pointer;
+
+            & img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+main {
+    .list {
+        --calculation: 1;
+
+        & .item {
+            transform: translateX(calc(100vw * var(--calculation)));
+            transition: 0.5s;
+            opacity: 0;
+
+            & .sneakers-img {
+
+                & img {
+                    transform: rotate(0);
+                    transition: 0.5s;
+                    transition-delay: 0.3s;
+                }
+            }
+
+            & .content {
+                & .price, .character, .description, .buy-now {
+                    transition: 0.7s;
+                    transition-delay: 0.3s;
+                    opacity: 0;
+                }
+
+                & .character {
+                    transition-delay: 0.5s;
+                }
+
+                & .description {
+                    transition-delay: 0.7s;
+                }
+
+                & .buy-now {
+                    transition-delay: 0.9s;
+                }
+            }
+        }
+
+        & .active {
+            transform: translateX(0);
+            transition: 0.5s;
+            opacity: 1;
+
+            & .sneakers-img {
+
+                & img {
+                    transform: rotate(-25deg);
+                }
+            }
+
+            & .content {
+                & .price, .character, .description, .buy-now {
+                    transform: translate(0);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
