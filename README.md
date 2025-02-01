@@ -1,2 +1,2 @@
 # pumaXonePiece
- Parceria entre Puma e One Piece
+ Site relacionado a parceria entre Puma e One Piece, criado para estudo.
